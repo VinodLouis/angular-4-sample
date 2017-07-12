@@ -1,0 +1,43 @@
+<div>
+<div *ngIf="tasks.length>0; then table_display else info_display"></div>
+
+<ng-template #table_display>
+      <md-card>
+   <div> Total Tasks : <span class="counter">{{tasks.length}}</span> <button class="pull-right" (click)="navigateNew()" md-raised-button color="primary">Add more Tasks</button></div>
+   <div style="clear: both"></div>
+   <hr/>
+   <table class="full-width">
+         <thead>
+            <tr>
+               <th>No.</th>   
+               <th>Title</th>
+               <th>Description</th>
+               <th>Date</th>
+               <th>Edit</th>
+               <th>Delete</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let items of tasks;index as i">
+               <td>{{i+1}}</td>
+               <td>{{items.title}}</td>
+               <td>{{items.desc}}</td>
+               <td>{{items.taskdt | date: 'MM/dd/yyyy'}}</td>
+               <td> <a [routerLink]="['/tasks', items._id]"><md-icon color="accent" class="icon-td">mode_edit</md-icon></a></td>
+               <td><md-icon color="warn" class="icon-td" (click)="deleteTask(items._id)">delete_forever</md-icon></td>
+            </tr>
+         </tbody>
+   </table>
+   <hr/>
+</md-card>
+</ng-template>
+
+
+<ng-template #info_display>
+   <md-card>
+      <div class="text-center"> No records found click <a [routerLink]="['/tasks', '/new']"> here </a> to insert Tasks.</div>
+   </md-card>
+</ng-template>
+ <router-outlet></router-outlet>
+</div>
+

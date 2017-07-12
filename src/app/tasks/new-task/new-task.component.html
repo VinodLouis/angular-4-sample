@@ -1,0 +1,31 @@
+<md-card class="task-form">
+	<form>
+  		<div>
+  			<md-input-container class="full-width">
+    			<input [(ngModel)]="task.title" mdInput placeholder="Task title" name="title">
+  			</md-input-container>
+  		</div>
+
+  		<div>
+  			<md-input-container class="full-width">
+    			<textarea [(ngModel)]="task.desc" mdInput placeholder="Task description" name="desc"> </textarea> 
+  			</md-input-container>
+  		</div>
+
+  		<div>
+  			<md-input-container class="full-width">
+			  <input mdInput (focus)="picker.open()" [(ngModel)]="task.taskdt" [mdDatepicker]="picker" placeholder="Task Date" name="taskdt">
+			  <button mdPrefix [mdDatepickerToggle]="picker"></button>
+			</md-input-container>
+			<md-datepicker #picker></md-datepicker>
+  		</div>
+
+  		<div>
+  			<button (click)="saveTask(false)" color="primary" md-raised-button>Save</button>
+  			<button (click)="saveTask(true)" color="accent" md-raised-button>Save and Add More</button>
+  			<button (click)="resetForm()" color="warn" md-raised-button>Reset</button>
+  			<button (click)="cancelForm()" md-raised-button>Cancel</button>
+  		</div>
+  		
+  	</form>	
+</md-card>
