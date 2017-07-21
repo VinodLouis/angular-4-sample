@@ -12,7 +12,7 @@ This application is an upgradation of a previouslly created application in [angu
 
 ## Live Demo
 
-For a Live Demo Click [here](https://stark-hamlet-87302.herokuapp.com/tasks)
+For a Live Demo Click [here](https://stark-hamlet-87302.herokuapp.com)
 
 ## Step-by-step tutorial
 
